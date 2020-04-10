@@ -1,0 +1,28 @@
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.util.*;
+
+public class writer {
+  public static void main(String[] args) throws IOException {
+    
+	  Scanner a = new Scanner(System.in);
+	  
+	  File file = new File("accounts.txt");
+	  PrintWriter fileOutput = new PrintWriter(file);
+	  
+	  System.out.println("enter a username"); 
+	  String username = a.next();
+	  fileOutput.print(username);
+	  
+	  System.out.println("enter a username"); 
+	  int password = a.nextInt();
+      fileOutput.println(password);
+     
+
+      // Part D
+      fileOutput.close();
+	  
+	  
+  }
+}

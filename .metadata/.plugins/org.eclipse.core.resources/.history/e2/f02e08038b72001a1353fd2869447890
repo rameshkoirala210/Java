@@ -1,0 +1,165 @@
+import java.util.*;
+
+//By Ramesh Koirala
+//Verson 1?
+//Date: 3/22/2020
+//pre07 
+public class Assignment2 {
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+		String  mainSentence = newMainSentence();
+		String word = "", choice;
+		
+		do {
+		menu();
+		System.out.println("\nEnter Your Choice: ");
+		choice = a.next();
+		
+		if(choice.equals("A") ||choice.equals("a")) {
+			newMainSentence();
+			
+			mainSentence = newMainSentence();
+		
+		}else if(choice.equals("B") ||choice.equals("b")) {
+			System.out.println("Enter the search string: ");
+			word = a.next();
+			if(searchStringIndex(mainSentence,word) == - 1) {
+		         System.out.println(word + "not found");
+		      } else {
+		         System.out.println(word + " found at " + searchStringIndex(mainSentence,word));
+		      }
+		}else if(choice.equals("C") ||choice.equals("c")) {
+			
+			System.out.println("Enter the string you want to find all incidents for: ");
+			word = a.next();
+			
+			System.out.println("words " + searchAllString(mainSentence,word));
+			
+		}else if(choice.equals("D") ||choice.equals("d")) {
+			System.out.println("Enter the search string: ");
+			word = a.next();
+			System.out.println("Do you want to capitalize the string (y or n): ");
+			String aword = a.next();
+			if (aword.equals("n") ||aword.equals("N")) {
+				System.out.println(mainSentence);
+			}else if(aword.equals("y") ||aword.equals("y")) {
+				System.out.println(capitalizeString(mainSentence, word));
+			}
+			
+		}else if(choice.equals("E") ||choice.equals("e")) {
+			System.out.println("Enter the search string: ");
+			String searchWord = a.next();
+			System.out.println("Enter the replacing string: ");
+			String replaceWord = a.next();
+			System.out.println(replaceString(mainSentence, searchWord, replaceWord));
+		
+		}else if(choice.equals("F") ||choice.equals("f")) {
+			System.out.println(mainSentence);
+			System.out.println("Number of words: " + countWords(mainSentence));
+		
+		}else if(choice.equals("G") ||choice.equals("g")) {
+			System.out.println(mainSentence);
+			System.out.println("The number of letters are " +countOccurrencesLetter(mainSentence, word));
+		
+		}else if(choice.equals("H") ||choice.equals("h")) {
+			System.out.println(mainSentence);
+			System.out.println("The number of letters are: " + countLetters(mainSentence));
+		
+		}else if(choice.equals("I") ||choice.equals("i")) {
+			System.out.println("Enter a word to delete: ");
+			word = a.next();
+			
+			System.out.println("The new Main Sentence is: " + deleteWord(mainSentence, word));
+		
+		}else if(choice.equals("J") ||choice.equals("j")) {
+			System.out.println(exit());
+		}
+	}while(!choice.equals("j")|| !choice.equals("J"));
+	}
+	public static void menu() {
+		System.out.println("Choices: ");
+		System.out.println("A. Enter a new Main Sentence: ");
+		System.out.println("B. Search for a String");
+		System.out.println("C. Search for all incidents of a stringD.");
+		System.out.println("D. Search for and capitalize a String if necessary");
+		System.out.println("E. Replace all incidents of a string to another one");
+		System.out.println("F. Count the number of words");
+		System.out.println("G. Count the number of occurrences of a letter");
+		System.out.println("H. Count the total number of letters");
+		System.out.println("I. Delete all occurrences of a word");
+		System.out.println("J. Exit");
+	} public static String newMainSentence(){
+		Scanner a = new Scanner(System.in);
+		System.out.println("Input a new Main Sentence: ");
+		String mainSentence = a.nextLine();
+			
+		System.out.println("The new Main Sentence is: " + mainSentence);
+		return mainSentence;
+	
+	}public static int searchStringIndex(String mainSentence, String word){
+		int index = mainSentence.indexOf(word);
+		return index;
+	
+	}public static String searchAllString(String mainSentence, String word){
+
+		int l = 0;
+		int len = mainSentence.length();
+		String ab = "";
+		
+			while(mainSentence.indexOf(word, l) != -1) {
+			int a  = mainSentence.indexOf(word, l);
+			 ab = ab + "Found at " + a; 
+			}
+			return ab;
+
+	}public static String capitalizeString(String mainSentence, String word){
+			String w1 = word;
+			 String a = word.substring(0, 1).toUpperCase() + word.substring(1);
+			 String output = mainSentence.replaceAll(w1,a);
+			 return output;
+	
+	}public static String replaceString(String mainSentence, String searchWord, String replaceWord){
+		String replaceString = mainSentence.replace(searchWord,replaceWord);
+		return replaceString;
+	
+	}public static int countWords(String mainSentence){
+		int count = 0;
+        if (!(" ".equals(mainSentence.substring(0, 1))) || !(" ".equals(mainSentence.substring(mainSentence.length() - 1)))){
+            for (int i = 0; i < mainSentence.length(); i++){
+                if (mainSentence.charAt(i) == ' '){
+                    count++;
+                }
+            }
+            count = count + 1; 
+        }
+        return count;
+		
+	}public static int countOccurrencesLetter(String mainSentence, String word){
+		int counter = 0;
+		
+		int index = mainSentence.indexOf(word);
+		while(index >= 0) {
+		    index = mainSentence.indexOf(word, index+1);
+		    counter++;
+		}
+		return counter;
+		
+	}public static int countLetters(String mainSentence){
+		char[] ch = mainSentence.toCharArray();
+		int letter = 0;
+		
+		for(int i = 0; i < mainSentence.length(); i++){
+			if(Character.isLetter(ch[i])){
+				letter ++ ;
+			}
+		}
+		return letter;
+   
+	}public static String deleteWord(String mainSentence, String word){
+		String a = mainSentence.replaceAll(word, "");
+		return a;
+	
+	}public static String exit(){
+		return ("Bye");
+	}
+}

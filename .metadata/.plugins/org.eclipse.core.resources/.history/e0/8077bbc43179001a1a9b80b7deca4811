@@ -1,0 +1,27 @@
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class run {
+    public static void main(String[] args) throws IOException {
+        
+        File file = new File("accounts.txt");
+        Scanner fileInput = new Scanner(file); 
+        while(fileInput.hasNext()){  
+            String firstName = fileInput.next();
+          
+            System.out.println("Name is " + firstName );
+        }
+        
+        File  nu= new File("accounts1.txt");
+        Scanner fI = new Scanner(file); 
+		
+        while(fI.hasNextInt()){ 
+        	int age = fI.nextInt();
+            System.out.println("num is " + age );
+        }
+        fileInput.close();
+
+    }
+}

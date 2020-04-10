@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class test {
+
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        
+        int[][] array = {{1, 2, 3}, {4, 5}, {6}}; 
+        int sum = 0; 
+        for (int r = 0; r < array.length; r++) {
+           for (int c=0; c<array[r].length; c++){
+               sum += array[r][c]; 
+              }
+        }
+        System.out.println(sum);
+    }
+
+}
