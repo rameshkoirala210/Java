@@ -4,14 +4,14 @@ import java.util.*;
  *Verson 1?
  *Date: 3/29/2020
  *Assignment 2
- * psudocode--(not really that good at psudocode)
- * Start= ask a user for a main sentence     (read line 21 for more)
+ * psudocode--(not really that good at psudocode) ps.i put like the simple code examples in the comments
+ * Start= ask a user for a main sentence
  * make string variables
  * next = do while loop until exit option and if statement 
  * 1st statement= ask's user for a new main sentence which is in method, saved as mainsentence
  * 2nd statement = ask's user for word which goes to method, method returns index of the word and if statement runs and prints out options
  * 3rd statement =asks for a letter and goes to method using do while method it finds where that letter is and prints it in main method
- * ps. found it wired why we couldnt just sent an int to the top.
+ * ps. found it weird why we could'nt just sent an int to the top.
  * 4th statement =ask for a word and in the method change the first letter to upper case and replace it in main sentence and print it in choice 4
  * 5th statement =asks for word in main sentence and word to replace with and replaces it in main sentence and prints it out
  * 6th statement =goes to method and counts how many words there are and not spaces and prints how many letter there is
@@ -31,16 +31,15 @@ public class Assignment2 {
 		String word = "", choice;
 		
 		do {//do while loop so it can loop again. 
-		menu();//with all options
+		menu();//Shows all options
 		System.out.println("\nEnter Your Choice: ");
 		choice = a.next();
 		
-		if(choice.equals("A") ||choice.equals("a")) {//choice a 
-			//newMainSentence();
+		if(choice.equals("A") ||choice.equals("a")) {//ask for new main sentence
 			
 			mainSentence = newMainSentence();
 		
-		}else if(choice.equals("B") ||choice.equals("b")) {//choice b
+		}else if(choice.equals("B") ||choice.equals("b")) {//ask for string, if(not there), if else(there)
 			System.out.println("Enter the search string: ");
 			word = a.next();
 			if(searchStringIndex(mainSentence,word) == - 1) {
@@ -55,7 +54,7 @@ public class Assignment2 {
 			
 			System.out.println(searchAllString(mainSentence,word));
 			
-		}else if(choice.equals("D") ||choice.equals("d")) {//choice d
+		}else if(choice.equals("D") ||choice.equals("d")) {//ask for string, ask to capitalize, if(yes),if else(no)
 			System.out.println("Enter the search string: ");
 			word = a.next();
 			System.out.println("Do you want to capitalize the string (y or n): ");
@@ -66,34 +65,34 @@ public class Assignment2 {
 				System.out.println(capitalizeString(mainSentence, word));
 			}
 			
-		}else if(choice.equals("E") ||choice.equals("e")) {//choice e
+		}else if(choice.equals("E") ||choice.equals("e")) {//ask for searchword and replace word, print method
 			System.out.println("Enter the search string: ");
 			String searchWord = a.next();
 			System.out.println("Enter the replacing string: ");
 			String replaceWord = a.next();
 			System.out.println(replaceString(mainSentence, searchWord, replaceWord));
 		
-		}else if(choice.equals("F") ||choice.equals("f")) {//choice f
+		}else if(choice.equals("F") ||choice.equals("f")) {//prints main and number of words method
 			System.out.println(mainSentence);
 			System.out.println("Number of words: " + countWords(mainSentence));
 		
-		}else if(choice.equals("G") ||choice.equals("g")) {//choice g
+		}else if(choice.equals("G") ||choice.equals("g")) {//ask for letter, prints method
 			System.out.println("Enter a letter to count the number of occurrences: ");
 			word = a.next();
 			
 			System.out.println("The number of letters are " +countOccurrencesLetter(mainSentence, word));
 		
-		}else if(choice.equals("H") ||choice.equals("h")) {//choice h
+		}else if(choice.equals("H") ||choice.equals("h")) {//prints main and count letters method
 			System.out.println(mainSentence);
 			System.out.println("The number of letters are: " + countLetters(mainSentence));
 		
-		}else if(choice.equals("I") ||choice.equals("i")) {//choice i
+		}else if(choice.equals("I") ||choice.equals("i")) {//asks for word to delete, prints method 
 			System.out.println("Enter a word to delete: ");
 			word = a.next();
 			
 			System.out.println("The new Main Sentence is: " + deleteWord(mainSentence, word));
 		
-		}else if(choice.equals("J") ||choice.equals("j")) {//choice j
+		}else if(choice.equals("J") ||choice.equals("j")) {//prints method
 			System.out.println(exit());
 		}
 	}while(!choice.equals("j")|| !choice.equals("J"));//if they put j it ends after it runs j
@@ -110,7 +109,7 @@ public class Assignment2 {
 		System.out.println("H. Count the total number of letters");
 		System.out.println("I. Delete all occurrences of a word");
 		System.out.println("J. Exit");
-	} public static String newMainSentence(){//changing main sentence method a
+	} public static String newMainSentence(){//void method, Sys.out("new main sentence")
 		Scanner a = new Scanner(System.in);
 		System.out.println("Input a new Main Sentence: ");
 		String mainSentence = a.nextLine();
@@ -120,7 +119,7 @@ public class Assignment2 {
 	
 	}
 	
-	public static int searchStringIndex(String mainSentence, String word){//method b 
+	public static int searchStringIndex(String mainSentence, String word){//int method, return main.indexof(word) 
 		int index = mainSentence.indexOf(word);
 		return index;
 	
@@ -141,17 +140,17 @@ public class Assignment2 {
 		return ab;
 	}
 	
-	public static String capitalizeString(String mainSentence, String word){////method d
+	public static String capitalizeString(String mainSentence, String word){//String method, word.toUpperCase(first letter),main.replaceall (uppercase word with original) 
 			String w1 = word;
 			 String a = word.substring(0, 1).toUpperCase() + word.substring(1);
 			 String output = mainSentence.replaceAll(w1,a);
 			 return output;
 	
-	}public static String replaceString(String mainSentence, String searchWord, String replaceWord){//method e
+	}public static String replaceString(String mainSentence, String searchWord, String replaceWord){//String method, main.replace(old word, new word)
 		String replaceString = mainSentence.replace(searchWord,replaceWord);
 		return replaceString;
 	
-	}public static int countWords(String mainSentence){//method f
+	}public static int countWords(String mainSentence){//int method, (if(for(if))) loops, count +1 count all words no space
 		int count = 0;
         if (!(" ".equals(mainSentence.substring(0, 1))) || !(" ".equals(mainSentence.substring(mainSentence.length() - 1)))){
             for (int i = 0; i < mainSentence.length(); i++){
@@ -163,7 +162,7 @@ public class Assignment2 {
         }
         return count;
 		
-	}public static int countOccurrencesLetter(String mainSentence, String word){//method g
+	}public static int countOccurrencesLetter(String mainSentence, String word){//int method, main.indexof, while loop, counter++
 		int counter = 0;
 		
 		int index = mainSentence.indexOf(word);
@@ -173,7 +172,7 @@ public class Assignment2 {
 		}
 		return counter;
 		
-	}public static int countLetters(String mainSentence){//method h
+	}public static int countLetters(String mainSentence){// int method, char array, for(if) loop, count every letter.
 		char[] ch = mainSentence.toCharArray();
 		int letter = 0;
 		
@@ -184,11 +183,11 @@ public class Assignment2 {
 		}
 		return letter;
    
-	}public static String deleteWord(String mainSentence, String word){//method i
+	}public static String deleteWord(String mainSentence, String word){//String method, main.replaceall(original word with, blank)
 		String a = mainSentence.replaceAll(word, "");
 		return a;
 	
-	}public static String exit(){//method j
-		return ("Bye");
+	}public static String exit(){//print bye
+		return ("bye!:)");
 	}
 }

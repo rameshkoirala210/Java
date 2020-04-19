@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+
+public class SG83 {
+
+	public static void main(String[] args) {
+		
+		SpaceGame myGame = new SpaceGame("my game", 500, 500);
+		
+		int ssX = 250, ssY = 250;
+		Shape spaceShip = new Shape(0, ssX, ssY, 50, 50);
+		
+		myGame.addShape(spaceShip);
+		
+		int pointX = (int)(Math.random() * 250); 
+		int pointY = (int)(Math.random() * 250);
+		 System.out.println(pointX +" s "+pointY);
+		Shape base = new Shape(1, pointX, pointY, 50, 50);
+		
+		myGame.addShape(base);
+		do {
+		if(ssY < 499 || ssY > 0) {
+				if(pointY < 250 && pointY > 0 || pointY != ssY){
+						myGame.moveUp(spaceShip, 5, 1);
+						break;
+				}else if (pointY > 250 && pointY < 500 || pointY != ssY) {
+					myGame.moveDown(spaceShip, 5, 1);
+					break;
+				}
+			
+				if (pointX > 250 && pointX < 500 || pointX != ssX) {
+					myGame.moveRight(spaceShip, 5, 1);
+					break;
+				}else if(pointX < 250 && pointX > 0 || pointX != ssX){
+					myGame.moveLeft(spaceShip, 5, 1);
+					break;
+				}
+		}	
+		}while(ssX != pointX || ssY != pointX);
+	}
+}

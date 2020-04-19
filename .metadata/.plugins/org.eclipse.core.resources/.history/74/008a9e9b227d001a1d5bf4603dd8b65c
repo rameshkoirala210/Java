@@ -1,0 +1,9 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class test {
+        public static void main(String[] args) {
+        	double[][][] billy = new double[10][500][700];
+        	System.out.println(billy[5].length);
+         }
+     }

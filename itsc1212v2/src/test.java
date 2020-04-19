@@ -1,24 +1,17 @@
-import java.util.Scanner;
-import java.util.Arrays;
-
 public class test {
-        
+ static String global = "";
 
-        static int[] list = { 1, 2, 3 };
+   public static void main(String[] args) {
 
-        public static void main(String[] args) {
-             System.out.println("from Main():");
-            System.out.println(Arrays.toString(list));
-             list[0]=10;
-             print();
-             System.out.println("from Main():");
-             System.out.println(Arrays.toString(list));
-         }
+        global = "Yum!"; // part A
+        System.out.println(global);// part B
+        String global = "Greasey Pie"; // part C
+       System.out.println(global); // part D
+        myMethod();
 
-
-        public static void print(){
-               System.out.println("from print():");
-               System.out.println(Arrays.toString(list));
-               list[0]=7;
-         }
-     }
+  }
+     public static void myMethod() {
+          global= "I'm not hungry";
+          System.out.println(global); // part E
+ }
+}

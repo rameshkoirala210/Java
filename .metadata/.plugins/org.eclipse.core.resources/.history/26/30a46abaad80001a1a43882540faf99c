@@ -1,0 +1,14 @@
+import java.util.*;
+
+//By Ramesh Koirala
+//Verson 1?
+//Date: 4/12/2020
+//Post08 
+public class post08 {
+ public static void main(String[] args) {
+	 System.out.println("ID001");
+	 
+	 
+	 
+ }
+}
