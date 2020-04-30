@@ -1,0 +1,89 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/*
+ * Author:
+ * Version:
+ * Date:
+ * Description:
+ *
+ * ANSWERS:
+ * 1.
+ *
+ *
+ * 2.
+ *
+ *
+ * 3.
+ *
+ *
+ */
+public class Galactica {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		//Declare and initialize game window
+		int windowWidth = 500;
+		int windowLength = 500;
+		SpaceGame galactica = new SpaceGame("Battlestar Galactica", windowWidth, windowLength);
+
+		//Declare and initialize spaceship
+		Shape spaceShip = new Triangle(windowWidth/2, 450, 25, 50);
+
+		//add spaceShip to galactica game window
+		galactica.addShape(spaceShip);
+
+		System.out.print("Please enter a difficulty between 1 and 10: ");
+		int difficulty = Integer.parseInt(scan.nextLine()); //take the input and parse it as an integer
+
+		//create an arraylist containing the enemies as points
+		ArrayList<Point> enemies = createEnemies(windowWidth, difficulty);
+
+		//TODO add all of the enemies in the enemies ArrayList to the galactica game window
+		for (int counter = 0; counter < enemies.size(); counter++) { 		      
+	          System.out.println(enemies.get(counter)); 		
+	      } 
+		
+
+		boolean gameOver = false;
+		while(!gameOver){
+			for(Point enemy : enemies){ // for each enemy in the enemies ArrayList
+				//TODO move each enemy down by a random value
+				
+				if(enemy.intersect(spaceShip)){ //if the enemy is intersecting with the spaceShip, game over is true
+					gameOver = true;
+				}
+
+				//CREATE THE SPACESHIP MOVEMENT HERE
+				//HINT: Do you need to avoid the enemies that are far away?
+				//Find a way to maneuver the spaceShip to avoid being close to enemies!
+
+			}
+		}
+		System.out.println("Game over!");
+	}
+
+	//Method to create the enemies DO NOT TOUCH THIS METHOD
+	public static ArrayList<Point> createEnemies(int width, int difficulty) {
+		boolean[] isEnemy = new boolean[width]; //boolean array for whether a column should have an enemy
+		double spawnRate = (difficulty/50.0);   //spawn rate is difficulty divided by 50
+
+		for(int i = 0; i < isEnemy.length; i++){
+			if(Math.random() < spawnRate){
+				isEnemy[i] = true;  //set enemy present where the random value is less than the spawn rate. (i.e 0.10943 is less than 0.2)
+			}
+		}
+
+		ArrayList<Point> enemies = new ArrayList<>();   //declare and initialize the enemies ArrayList
+		for(int x = 0; x < width; x++){
+			if(isEnemy[x]){ //if there is an enemy for the column
+				int randomY = (int)(Math.random() * 50);
+				Point enemy = new Point(x, randomY);
+
+				enemies.add(enemy); //add the new enemy to the enemies ArrayList
+			}
+		}
+
+		return enemies;
+	}
+}

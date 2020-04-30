@@ -1,17 +1,21 @@
+import java.lang.reflect.Array;
+import java.util.*;
+
 public class test {
- static String global = "";
 
    public static void main(String[] args) {
+	   Scanner a = new Scanner (System.in);
 
-        global = "Yum!"; // part A
-        System.out.println(global);// part B
-        String global = "Greasey Pie"; // part C
-       System.out.println(global); // part D
-        myMethod();
+	   int[] aa1 = new int[10];
 
-  }
-     public static void myMethod() {
-          global= "I'm not hungry";
-          System.out.println(global); // part E
- }
-}
+	   for (int i = 0; i<5; i++){
+		   System.out.print("#: ");
+		   aa1[i]=a.nextInt();
+		   }
+	   System.out.println(aa1.length);
+	   
+		      }
+
+		}
+
+ 
