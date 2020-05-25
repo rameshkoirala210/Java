@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=ItemSale
+comment0.text=\r\n\ This\ class\ holds\ data\ for\ a\ sales\ slip\ after\ a\ discount\ is\ applied.\r\n\r\n\ @author\ (Ramesh\ Koirala)\r\n\ @version\ (5/25/20)\r\n
+comment1.params=
+comment1.target=ItemSale()
+comment2.params=inCost
+comment2.target=void\ setCost(double)
+comment3.params=inNumber
+comment3.target=void\ setNumberOfItems(int)
+comment4.params=inDiscountRate
+comment4.target=void\ setDiscount(double)
+comment5.params=
+comment5.target=double\ getFinalCost()
+numComments=6

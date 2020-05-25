@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CostCalculator
+comment0.text=\r\n\ Lab\ 1\r\n\r\n\ @author\ (Ramesh\ Koirala)\r\n
+comment1.params=inMiles\ inGallons\ inCostPer
+comment1.target=CostCalculator(double,\ double,\ double)
+numComments=2
