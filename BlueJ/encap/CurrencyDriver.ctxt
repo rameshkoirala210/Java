@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CurrencyDriver
+comment0.text=\r\n\ This\ class\ contains\ main()\ where\r\n\ excution\ starts.\ main(\ )\ creates\ and\ instance\r\n\ of\ the\ Currency\ class.\ The\ code\ then\ promts\ the\r\n\ user\ to\ enter\ different\ amounts\ of\ money\ specifying\r\n\ any\ of\ the\ currencies.\ The\ code\ then\ calls\ a\ set(\ )\r\n\ method\ and\ prints\ that\ amount\ in\ all\ five\ of\ the\ currency\ \r\n\ types.\r\n\ \r\n\ The\ user\ continues\ to\ enter\ new\ amounts\ of\ money\r\n\ until\ the\ user\ enters\ anything\ but\ a\ 'y'/\r\n\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

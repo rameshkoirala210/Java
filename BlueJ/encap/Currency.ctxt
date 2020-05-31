@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Currency
+comment0.text=\r\n\ This\ class\ holds\ a\ value\ of\ currency\ in\ various\r\n\ denominations\r\n\r\n\r\n
+comment1.params=
+comment1.target=Currency()
+comment2.params=epd\ dpd\ bpd\ ppd\ money\ moneyType
+comment2.target=Currency(double,\ double,\ double,\ double,\ double,\ java.lang.String)
+comment3.params=money\ moneyType
+comment3.target=void\ setMoney(double,\ java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5
